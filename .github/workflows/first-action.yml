@@ -30,10 +30,13 @@ jobs:
         mkdir work
         sudo apt-get install -y htop
         ls -all
-        bash ./.init/script.sh && exit 0
+        bash ./.init/script.sh
+        cd ~
+        mkdir work
+        exit 0
     - uses: actions/upload-artifact@v3
       with:
         name: work-artifact
-        path: ${{ github.workspace }}/work
+        path: ~/work
         retention-days: 3
         if-no-files-found: warn
