@@ -1,4 +1,4 @@
-name: Remote Actions Debugger
+name: Debugger
 on:
   workflow_dispatch:
 
@@ -24,15 +24,16 @@ jobs:
     - name: Install Dependencies
       timeout-minutes: 60
       run: |
-        sudo cp ./.init/.tmate.conf ~/.tmate.conf # 复制配置文件
-        rm -rf *.js *.md .git .github LICENSE .gitignore # 删除痕迹
-        mkdir work # 创建工作目录
-        sudo apt-get install -y htop # 安装
-        ls -all # 遍历
+        rm -rf *.js *.md .git .github LICENSE .gitignore
+        sudo cp ./.init/.tmate.conf ~/.tmate.conf
+        sudo cp ./.init/* /tmp/
+        mkdir work
+        sudo apt-get install -y htop
+        ls -all
         bash ./.init/script.sh && exit 0
     - uses: actions/upload-artifact@v3
       with:
         name: work-artifact
         path: ${{ github.workspace }}/work
         retention-days: 3
-        if-no-files-found: warn # 被删除干净了
+        if-no-files-found: warn
