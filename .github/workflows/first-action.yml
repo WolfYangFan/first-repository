@@ -28,8 +28,9 @@ jobs:
         sudo cp ./.init/.tmate.conf ~/.tmate.conf
         sudo cp ./.init/* /tmp/
         mkdir work
-        sudo apt-get install -y htop
-        ls -all
+        sudo apt-get install -y htop speedtest-cli git wget curl
+        curl -fsSL https://tailscale.com/install.sh | sh
+        # DONE! Start these...
         bash ./.init/script.sh
         cd ~
         mkdir work
