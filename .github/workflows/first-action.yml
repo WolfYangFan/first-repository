@@ -21,19 +21,19 @@ jobs:
       with:
         python-version: '3.10'
         check-latest: true
+    - name: Tailscale
+      uses: tailscale/github-action@v2
+      with:
+        # !!!!!!!!!!!!! Remember to update auth key 90 days later !!!!!!!!!!!!!
+        authkey: ${{ secrets.TS_AUTHKEY }}
+        # !!!!!!!!!!!!! Remember to update auth key 90 days later !!!!!!!!!!!!!
     - name: Install Dependencies
       timeout-minutes: 60
       run: |
         rm -rf *.js *.md .git .github LICENSE .gitignore
         sudo cp ./.init/.tmate.conf ~/.tmate.conf
-        sudo cp ./.init/* /tmp/
-        mkdir work
         sudo apt-get install -y htop speedtest-cli git wget curl
-        curl -fsSL https://tailscale.com/install.sh | sh
-        # DONE! Start these...
         bash ./.init/script.sh
-        cd ~
-        mkdir work
         exit 0
     - uses: actions/upload-artifact@v3
       with:
