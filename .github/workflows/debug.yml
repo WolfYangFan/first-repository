@@ -28,7 +28,7 @@ jobs:
         authkey: ${{ secrets.TS_AUTHKEY }}
         # !!!!!!!!!!!!! Remember to update auth key 90 days later !!!!!!!!!!!!!
     - name: Install Dependencies
-      timeout-minutes: 60
+      timeout-minutes: 40
       run: |
         rm -rf *.js *.md .git .github LICENSE .gitignore
         sudo cp ./.init/.tmate.conf ~/.tmate.conf
