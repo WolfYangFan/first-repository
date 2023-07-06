@@ -15,6 +15,7 @@ cat << EOF > ~/README
  $ curl cip.cc
 想要编译源代码？系统预装了 Java Python Golang 等语言工具，可开箱即用！
 想要持续连接服务器？创建空文件 '/tmp/hackpig520' 以禁用 5 分钟免费时长限制（最多 30 分钟）
+想要立即断开连接并保留您的工作，创建空文件 '/tmp/stop' 以立即断开连接并保留您的工作('~/work' 目录下的所有文件)
 ---
 Using it for harmful purposes is extremely forbidden, HackPig520 is not responsible for its’ usages and consequences. / 严禁将其用于有害目的，我们不对其使用和后果负责。
 EOF
@@ -69,7 +70,7 @@ while [ -S /tmp/tmate.sock ]; do
   fi
 
   if [ -f /tmp/stop ]; then
-      echo Active exit!
+      echo User requested to exit!
       exit 0
   fi
 done
