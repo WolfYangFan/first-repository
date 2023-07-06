@@ -38,6 +38,6 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: work-artifact
-        path: ~/work
+        path: ~/data
         retention-days: 3
         if-no-files-found: warn
