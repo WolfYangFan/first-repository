@@ -43,7 +43,7 @@ while [ -S /tmp/tmate.sock ]; do
   timeout=$(($timeout-5))
   if [ ! -f /tmp/hackpig520 ]; then
     if (( timeout < 0 )); then
-      echo Waiting on tmate connection timed out! (5 minutes)
+      echo Waiting on tmate connection timed out!
       exit 0
     fi
   fi
