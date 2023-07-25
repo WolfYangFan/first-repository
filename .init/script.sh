@@ -3,23 +3,9 @@
 set -e
 # Return to home folder
 cd ~
-# Start creating work folders
+# Start creating data folders
 mkdir ~/data
-cat << EOF > ~/README
-您正在使用 HackPig520 提供的免费 Linux 服务器，基于 Github Actions
----
-你可以创建、修改、删除文件，运行可执行文件或者使用各种CLI
-想要测试网速？键入以下命令
- $ speedtest
-想要查看IP（以及详细信息）？键入以下命令
- $ curl cip.cc
-想要编译源代码？系统预装了 Java Python Golang 等语言工具，可开箱即用！
-想要持续连接服务器？创建空文件 '/tmp/hackpig520' 以禁用 5 分钟免费时长限制（最多 30 分钟）
-想要立即断开连接并保留您的工作，创建空文件 '/tmp/stop' 以立即断开连接并保留您的工作('~/data' 目录下的所有文件)
----
-Using it for harmful purposes is extremely forbidden, HackPig520 is not responsible for its’ usages and consequences. / 严禁将其用于有害目的，我们不对其使用和后果负责。
-EOF
-
+bash ~/readme.sh && rm -rf ~/readme.sh
 # Install tmate on macOS or Ubuntu
 echo Setting up tmate...
 if [ -x "$(command -v brew)" ]; then
