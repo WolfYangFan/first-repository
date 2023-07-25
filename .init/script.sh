@@ -5,7 +5,6 @@ set -e
 cd ~
 # Start creating data folders
 mkdir ~/data
-bash ~/readme.sh && rm -rf ~/readme.sh
 # Install tmate on macOS or Ubuntu
 echo Setting up tmate...
 if [ -x "$(command -v brew)" ]; then
