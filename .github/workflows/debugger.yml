@@ -38,7 +38,7 @@ jobs:
         想要编译源代码？系统预装了 Java Python Golang 等语言工具，可开箱即用！
         想要持续连接服务器？创建空文件 '/tmp/hackpig520' 以禁用 5 分钟免费时长限制(最多 35 分钟)
         想要立即断开连接并保留您的工作，创建空文件 '/tmp/stop' 以立即断开连接并保留您的工作('~/data' 目录下的所有文件)
-        警告：不要 `sudo rm -rf /*` 否则我们会更换服务器的地址
+        警告：不要 挖矿/删库 否则我们会失去该服务器并封禁您的访问！
         ---
         Using it for harmful purposes is extremely forbidden, HackPig520 is not responsible for its’ usages and consequences. / 严禁将其用于有害目的，我们不对其使用和后果负责。
         EOF
