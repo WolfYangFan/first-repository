@@ -9,24 +9,26 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 16
+        node-version: 21
     - uses: actions/setup-java@v3
       with:
        distribution: 'zulu' # Azul Zulu OpenJDK
-       java-version: '17'
+       java-version: '21'
     - uses: actions/setup-go@v3
       with:
         go-version: '>=1.19.3'
     - uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
+        python-version: '3.12'
         check-latest: true
     - name: Install Dependencies
       timeout-minutes: 40
       run: |
         rm -rf *.js *.md .git .github LICENSE .gitignore
         sudo cp ./.init/.tmate.conf ~/.tmate.conf
-        sudo apt-get install -y htop speedtest-cli git wget curl
+        sudo apt-get install -y htop git wget curl btop
+        curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+        sudo apt-get install speedtest
         cat << EOF > ~/README
         您正在使用由 HackPig520 提供的免费 Linux 服务器，基于 Github Actions
         ---
